@@ -18,8 +18,8 @@ const MINIMAL_ERC20_ABI = [
 // @access  Public
 router.get('/', async (req, res) => {
   try {
-    // Primary connection using default provider for maximum stability
-    const provider = ethers.getDefaultProvider('mainnet');
+    // Utilizando un nodo público 100% gratuito y altamente disponible
+    const provider = new ethers.JsonRpcProvider('https://eth.llamarpc.com');
     const contract = new ethers.Contract(USDT_ADDRESS, MINIMAL_ERC20_ABI, provider);
 
     const name = await contract.name();
